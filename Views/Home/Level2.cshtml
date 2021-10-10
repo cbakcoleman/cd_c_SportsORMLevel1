@@ -14,3 +14,110 @@
         </ol>
     </div>
 </div>
+
+<div class="card">
+    <div class="card-body">
+        <h3>All Teams in the Atlantic Soccer Conference</h3>
+        <table class="table table-striped">
+            <tr>
+                <th>League Name</th>
+                <th>Team Name</th>
+            </tr>
+            @foreach(var t in ViewBag.AllASC)
+            {
+                <tr>
+                    <td>@t.CurrLeague.Name</td>
+                    <td>@t.TeamName</td>
+                </tr>
+            }
+        </table>
+    </div>
+</div>
+
+<div class="card">
+    <div class="card-body">
+        <h3>All Players in the Boston Penguins</h3>
+        <table class="table table-striped">
+            <tr>
+                <th>Player</th>
+            </tr>
+            @foreach(var p in ViewBag.BostonPenguinsPlayers)
+            {
+                <tr>
+                    <td>@p.FirstName @p.LastName</td>
+                </tr>
+            }
+        </table>
+    </div>
+</div>
+
+<div class="card">
+    <div class="card-body">
+        <h3>All Players in the International Collegiate Baseball Conference</h3>
+        <table class="table table-striped">
+            <tr>
+                <th>Player</th>
+            </tr>
+            @foreach(var t in ViewBag.ICBCPlayers)
+            {
+                <tr>
+                    <td>@t.FirstName @t.LastName</td>
+                </tr>
+            }
+        </table>
+    </div>
+</div>
+
+<div class="card">
+    <div class="card-body">
+        <h3>All Players in the American Conference of Amateur Football with the Last Name of Lopez</h3>
+        <table class="table table-striped">
+            <tr>
+                <th>Player</th>
+            </tr>
+            @foreach(var p in ViewBag.ACAFLopez)
+            {
+                <tr>
+                    <td>@p.FirstName @p.LastName</td>
+                </tr>
+            }
+        </table>
+    </div>
+</div>
+
+<div class="card">
+    <div class="card-body">
+        <h3>All Football Players</h3>
+        <table class="table table-striped">
+            <tr>
+                <th>Player</th>
+            </tr>
+            @foreach(var t in ViewBag.FootballPlayers)
+            {
+                <tr>
+                    <td>@t.FirstName @t.LastName</td>
+                </tr>
+            }
+        </table>
+    </div>
+</div>
+
+
+<div class="card">
+    <div class="card-body">
+        <h3>Players with the last name "Flores" that do not play for the Washington, Roughriders</h3>
+        <table class="table table-striped">
+            <tr>
+                <th>Player</th>
+            </tr>
+            @foreach(var t in ViewBag.FloresNotRoughriders)
+            {
+                <tr>
+                    <td>@t.FirstName @t.LastName</td>
+                </tr>
+            }
+        </table>
+    </div>
+</div>
+
+

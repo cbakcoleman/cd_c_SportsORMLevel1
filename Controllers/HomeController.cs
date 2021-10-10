@@ -5,6 +5,7 @@ using System.Linq;
 using System.Threading.Tasks;
 using Microsoft.AspNetCore.Mvc;
 using SportsORM.Models;
+using Microsoft.EntityFrameworkCore;
 
 
 namespace SportsORM.Controllers
@@ -95,6 +96,35 @@ namespace SportsORM.Controllers
         [HttpGet("level_2")]
         public IActionResult Level2()
         {
+            ViewBag.AllASC = _context.Teams
+                .Include(t => t.CurrLeague)
+                .Where(t => t.CurrLeague.Name == "Atlantic Soccer Conference")
+                .ToList();
+
+            ViewBag.BostonPenguinsPlayers = _context.Players
+                .Include(p => p.CurrentTeam)
+                .Where(p => p.CurrentTeam.TeamName == "Penguins" && p.CurrentTeam.Location == "Boston")
+                .ToList();
+
+            ViewBag.ICBCPlayers = _context.Players
+                .Include(t => t.CurrentTeam)
+                .Where(t => t.CurrentTeam.CurrLeague.Name == "International Collegiate Baseball Conference")
+                .ToList();
+
+            ViewBag.ACAFLopez = _context.Players
+                .Include(p => p.CurrentTeam)
+                .Where(p => p.CurrentTeam.CurrLeague.Name == "American Conference of Amateur Football" && p.LastName == "Lopez")
+                .ToList();
+
+            ViewBag.FootballPlayers = _context.Players
+                .Include(t => t.CurrentTeam)
+                .Where(t => t.CurrentTeam.CurrLeague.Sport == "Football").ToList();
+
+
+            ViewBag.FloresNotRoughriders = _context.Players
+                .Include(t => t.CurrentTeam)
+                .Where(t => t.CurrentTeam.TeamName != "Roughriders" && t.LastName == "Flores").ToList();
+
             return View();
         }
 
