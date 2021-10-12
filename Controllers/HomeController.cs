@@ -131,6 +131,11 @@ namespace SportsORM.Controllers
         [HttpGet("level_3")]
         public IActionResult Level3()
         {
+            // ViewBag.AllSamuelEvansTeamsEver = _context.Teams
+            //     .Include(p => p.AllPlayers)
+            //     .ThenInclude(p => p.PlayerOnTeam)
+            //     .Where(p => p.AllPlayers.Team.FirstName == "Samuel" && t.LastName == "Evans").ToList();
+
             return View();
         }
 
